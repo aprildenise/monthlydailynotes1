@@ -1,0 +1,241 @@
+fileFormatVersion: 2
+guid: a2f92579a4c7bf44da4f385ed3327e17
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: lovely things_GO/lovely things_GO
+    100002: lovely things_GO/lovely things_GO/cat
+    100004: lovely things_GO/lovely things_GO/drop
+    100006: lovely things_GO/lovely things_GO/heart
+    100008: lovely things_GO/lovely things_GO/star
+    400000: lovely things_GO/lovely things_GO/Transform
+    400002: lovely things_GO/lovely things_GO/cat/Transform
+    400004: lovely things_GO/lovely things_GO/drop/Transform
+    400006: lovely things_GO/lovely things_GO/heart/Transform
+    400008: lovely things_GO/lovely things_GO/star/Transform
+    2800000: lovely things
+    21200000: lovely things_GO/lovely things_GO/cat/SpriteRenderer
+    21200002: lovely things_GO/lovely things_GO/drop/SpriteRenderer
+    21200004: lovely things_GO/lovely things_GO/heart/SpriteRenderer
+    21200006: lovely things_GO/lovely things_GO/star/SpriteRenderer
+    21300000: e414c8d41cc721a43887b2f461a1feb1
+    21300002: e57de375b79e0e240a0fcfa97356768a
+    21300004: 4f2d28f203027664a95813ca3a9d2c26
+    21300006: baf9ba38d8c060749b7d25b606044eaa
+    100100000: lovely things_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: heart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 381
+      height: 293
+    spriteID: e414c8d41cc721a43887b2f461a1feb1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -96, y: -591}
+  - name: cat
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 632
+      width: 351
+      height: 251
+    spriteID: e57de375b79e0e240a0fcfa97356768a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -167, y: 440}
+  - name: drop
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 329
+      y: 305
+      width: 170
+      height: 250
+    spriteID: 4f2d28f203027664a95813ca3a9d2c26
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -357, y: 100}
+  - name: star
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 305
+      width: 317
+      height: 319
+    spriteID: baf9ba38d8c060749b7d25b606044eaa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -606, y: -288}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 512
+  importedTextureHeight: 1024
+  documentSize: {x: 1024, y: 1024}
+  textureActualWidth: 512
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: heart
+    spriteName: heart
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e414c8d41cc721a43887b2f461a1feb1
+    layerID: 479149618
+    mosaicPosition: {x: 4, y: 4}
+  - name: cat
+    spriteName: cat
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e57de375b79e0e240a0fcfa97356768a
+    layerID: 696029510
+    mosaicPosition: {x: 4, y: 632}
+  - name: drop
+    spriteName: drop
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f2d28f203027664a95813ca3a9d2c26
+    layerID: -1018758895
+    mosaicPosition: {x: 329, y: 305}
+  - name: star
+    spriteName: star
+    isGroup: 0
+    parentIndex: -1
+    spriteID: baf9ba38d8c060749b7d25b606044eaa
+    layerID: 0
+    mosaicPosition: {x: 4, y: 305}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
+  textureAssetName: lovely things
+  prefabAssetName: lovely things_GO
