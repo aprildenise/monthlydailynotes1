@@ -17,7 +17,7 @@ public class HitBoxTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the player has encountered the urge to cry
-        Debug.Log("hit here");
+        //Debug.Log("hit here");
         if (collision.gameObject.CompareTag("sadness") && !hasAlreadySuffered)
         {
             hasAlreadySuffered = true;
@@ -40,7 +40,7 @@ public class HitBoxTrigger : MonoBehaviour
         player.animator.SetBool("got hit", true);
         yield return new WaitForSeconds(3);
         player.animator.SetBool("got hit", false);
-        Debug.Log("done getting hit...");
+        //Debug.Log("done getting hit...");
         hasAlreadySuffered = false;
         //Debug.Log("player has healed...");
     }

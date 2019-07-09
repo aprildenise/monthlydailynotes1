@@ -18,8 +18,14 @@ public class UIManager : MonoBehaviour
     public CanvasGroup dialogueCanvas;
     public CanvasGroup startCanvas;
     public CanvasGroup gameCanvas;
+    public CanvasGroup quitCanvas;
+    public CanvasGroup congratsCanvas;
     public Animator gameAnimator;
+    public Animator creatureAnimator;
+    public Animator textPrompt;
+    public Animator phonePrompt;
     public GameObject board;
+    public AudioManager audio;
 
 
     // variables
@@ -28,6 +34,8 @@ public class UIManager : MonoBehaviour
     private bool dialogueFinished;
     private bool finishedEntry;
     private int entryCount;
+
+    //private int seconds;
 
     public List<string> beginningDialogue;
 
@@ -42,14 +50,21 @@ public class UIManager : MonoBehaviour
         entryCount = 0;
 
         dialogueCanvas.alpha = 0;
+        //seconds = 0;
+
         board.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        // Check if the intro animation is still playing
+        // check the time
+        //if (timestarts)
+        //{
+        //    seconds += (int)Time.deltaTime % 60;
+        //    Debug.Log("seconds:" + seconds);
+        //    secondstime.text = seconds.ToString("00");
+        //}
 
         // Check if the dialogue is finished
         if (dialogueFinished)
@@ -83,14 +98,6 @@ public class UIManager : MonoBehaviour
         }
 
 
-
-        // check the time
-        if (timestarts)
-        {
-            int seconds = (int)(Time.time % 60f);
-            secondstime.text = seconds.ToString("00");
-        }
-
     }
 
 
@@ -102,7 +109,9 @@ public class UIManager : MonoBehaviour
         finishedEntry = false;
         dialogueCanvas.alpha = 1;
 
+        // test
         StartCoroutine(TypeSentence(beginningDialogue[entryCount]));
+        //StartCoroutine(FadeOutDialogue());
 
     }
 
@@ -168,10 +177,81 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public IEnumerator PlayQuitScreen()
+    {
+
+        CanvasGroup group = quitCanvas;
+        // fade in the canvas
+        group.interactable = true;
+        float temp = group.alpha;
+
+        while (temp < 1)
+        {
+            temp += .01f;
+            group.alpha = temp;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(5f);
+
+        // exit 
+        Application.Quit();
+        Debug.Log("quit");
+
+    }
+
+
+    public IEnumerator PlayCongratsScreen(bool gameOver)
+    {
+        if (gameOver)
+        {
+            // play ending scene
+            creatureAnimator.SetBool("currentlyCrying", true);
+            yield return new WaitForSeconds(5f);
+            creatureAnimator.SetBool("currentlyCrying", false);
+            creatureAnimator.SetBool("doneCrying", true);
+
+            // play dialogue
+            dialogueCanvas.alpha = 1;
+            StartCoroutine(TypeSentence("but then everything feels alright again"));
+            yield return new WaitForSeconds(4);
+        }
+
+        else
+        {
+            // play dialogue
+            dialogueCanvas.alpha = 1;
+            StartCoroutine(TypeSentence("but i think im alright for now"));
+            yield return new WaitForSeconds(4);
+        }
+
+
+
+        CanvasGroup group = congratsCanvas;
+        // fade in the canvas
+        group.interactable = true;
+        float temp = group.alpha;
+
+        while (temp < 1)
+        {
+            temp += .01f;
+            group.alpha = temp;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(5f);
+
+        // exit 
+        Application.Quit();
+        //Debug.Log("done");
+    }
+
+
     private IEnumerator FadeOutDialogue()
     {
         // Get canvas renderer
         CanvasGroup group = dialogueCanvas;
+
         float temp = group.alpha;
 
         while (temp > .01)
@@ -219,19 +299,56 @@ public class UIManager : MonoBehaviour
     {
         if (lives == 2)
         {
+            StartCoroutine(PlayAboutToCry());
             thirdheart.enabled = false;
         }
         else if (lives == 1)
         {
+            StartCoroutine(PlayAboutToCry());
             secondheart.enabled = false;
         }
         else if (lives == 0)
         {
+            StartCoroutine(PlayAboutToCry());
+            creatureAnimator.SetBool("currentlyCrying", true);
             firstheart.enabled = false;
         }
         else
         {
             Debug.LogWarning("you have a strange number of lives....");
         }
+    }
+
+
+    public IEnumerator PlayAboutToCry()
+    {
+        creatureAnimator.SetBool("aboutToCry", true);
+        yield return new WaitForSeconds(1f);
+        creatureAnimator.SetBool("aboutToCry", false);
+    }
+
+
+    public void PlayTextPrompt()
+    {
+        textPrompt.SetBool("showTextPrompt", true);
+        audio.Play("phone");
+    }
+
+    public void HideTextPrompt()
+    {
+        textPrompt.SetBool("showTextPrompt", false);
+        audio.Stop("phone");
+    }
+
+    public void DisplayPhone()
+    {
+        phonePrompt.SetBool("displayPhone", true);
+        HideTextPrompt();
+    }
+
+    public void HidePhone()
+    {
+        phonePrompt.SetBool("displayPhone", false);
+        PlayTextPrompt();
     }
 }

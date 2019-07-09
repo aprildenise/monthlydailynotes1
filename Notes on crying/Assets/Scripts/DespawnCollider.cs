@@ -8,7 +8,7 @@ public class DespawnCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("sadness"))
+        if (collision.gameObject.CompareTag("sadness") || collision.gameObject.CompareTag("nonHazard"))
         {
             Destroy(collision.gameObject);
         }

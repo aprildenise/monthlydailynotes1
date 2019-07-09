@@ -13,7 +13,7 @@ public class GameStartTrigger : MonoBehaviour
     {
         readyToSpawn = true;
         GetComponent<Animator>().enabled = false;
-        game.SetStartTimer();
+        //game.SetStartTimer();
         StartCoroutine(game.SpawnHazards());
     }
 }

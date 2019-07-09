@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 
     // References
-    public Animator animator;
+    [HideInInspector] public Animator animator;
     private Rigidbody2D body;
     public UIManager visuals;
     public ParticleSystem extra;
     public MainManager gameController;
+    public AudioManager audio;
 
 
     // Variables
@@ -19,6 +20,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 wishvelocity;
     private int lives;
     private bool takeitslow;
+    public bool canText;
+    public bool gameFinished;
+
+    public bool onPhone;
+    
 
 
 
@@ -31,16 +37,42 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         slowspeed = speed / 2f;
         lives = 3;
+        canText = false;
         extra.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // check if the player wants to move to another distant place
+        
+        // if the player can interact with the phone 
+        if (canText)
+        {
+
+            if (Input.GetKeyDown(KeyCode.Q) && !onPhone)
+            {
+                Debug.Log("pressed q");
+                // Display phone
+                visuals.DisplayPhone();
+                gameController.InteractWithPhone(true);
+                onPhone = true;
+                return;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Q) && onPhone)
+            {
+                Debug.Log("pressed q");
+                // hide phone
+                visuals.HidePhone();
+                gameController.InteractWithPhone(false);
+                onPhone = false;
+                return;
+            }
+        
+        }
 
         // Check if the player wants to show their heart
-        if (Input.GetButton("Cancel"))
+        if (Input.GetKey("space"))
         {
             takeitslow = true;
         }
@@ -49,6 +81,7 @@ public class PlayerController : MonoBehaviour
             takeitslow = false;
         }
 
+        // check if the player wants to move to another distant place
         Vector2 playerwishes = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (takeitslow)
         {
@@ -80,11 +113,16 @@ public class PlayerController : MonoBehaviour
 
     public void LoseLife()
     {
+        if (onPhone || gameFinished)
+        {
+            return;
+        }
         lives--;
-        if (lives == 0)
+        audio.PlayRandPitched("drip");
+        if (lives <= 0)
         {
             Debug.Log("gameover");
-            return;
+            StartCoroutine(gameController.GameOver());
         }
         visuals.RemoveHeart(lives);
     }
